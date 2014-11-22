@@ -15,8 +15,8 @@ if(! file_exists(__DIR__."/vendor/autoload.php"))
 
 ?><html>
     <head>
-	    <meta charset="utf-8" />
-	    <title>ResqueTime Dashboard</title>
+        <meta charset="utf-8" />
+        <title>ResqueTime Dashboard</title>
         <script type="text/javascript;">
             setInterval(function(){                
                 document.getElementById('iframe').src='stat.php?id=' + Math.random();                

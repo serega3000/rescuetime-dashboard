@@ -49,7 +49,7 @@ $weather_data = json_decode(file_get_contents('http://api.openweathermap.org/dat
 	
 	<head>		
     <meta http-equiv="refresh" content="300">
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     
 	<style>
 		*{
