@@ -1,1 +1,4 @@
 key.php
+vendor
+composer.lock
+composer.phar
