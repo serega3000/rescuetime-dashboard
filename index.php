@@ -1,4 +1,4 @@
-<?
+<?php
 if(! file_exists(__DIR__."/key.php"))
 {
 	echo "please rename key.example.php to key.php and fill your api key";
