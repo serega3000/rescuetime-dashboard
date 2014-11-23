@@ -1,6 +1,6 @@
 <?
 date_default_timezone_set('Europe/Moscow'); 
-require 'resquetime.php';
+require 'rescuetime.php';
 
 $last_monday = time();
 if(date('w', $last_monday) != '1')
@@ -9,7 +9,7 @@ if(date('w', $last_monday) != '1')
     $last_monday = strtotime('last monday');
 }
 
-$data = resquetime_query(array(
+$data = rescuetime_query(array(
 	'restrict_kind' => 'productivity',
 	'perspective' => 'rank',
 	'restrict_end' => date('Y-m-d'),

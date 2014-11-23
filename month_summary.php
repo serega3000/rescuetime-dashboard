@@ -1,12 +1,12 @@
 <?
 namespace Zoop\Mirage;
 require __DIR__."/vendor/autoload.php";
-require 'resquetime.php';
+require 'rescuetime.php';
 
 ini_set('show_errors',1);
 error_reporting(E_ALL);
 
-$data = resquetime_query(array(
+$data = rescuetime_query(array(
 	'restrict_kind' => 'productivity',
 	'perspective' => 'rank',
 	'restrict_end' => date('Y-m-d'),

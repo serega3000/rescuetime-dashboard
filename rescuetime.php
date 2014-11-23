@@ -2,7 +2,7 @@
 
 date_default_timezone_set('Europe/Moscow'); 
 
-function resquetime_query(array $params)
+function rescuetime_query(array $params)
 {
 	$params['key'] = include __DIR__."/key.php";
 	$params['format'] = 'json';
