@@ -1,6 +1,6 @@
 ###Rescuetime dashboard
 
-![alt tag](https://raw.githubusercontent.com/serega3000/openstack-dashboard/master/screen.png)
+![alt tag](https://raw.github.com/serega3000/rescuetime-dashboard/master/screen.png)
 
 ###Installing 
     git clone https://github.com/serega3000/rescuetime-dashboard.git 
