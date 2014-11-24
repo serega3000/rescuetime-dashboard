@@ -27,7 +27,7 @@ foreach($data->rows as $item_data)
 	}
 }
 
-$current_need = 60 * 60 * 30;
+$current_need = 60 * 60 * get_config('week_target');
 $current_percent = min(100, floor($current_time / $current_need * 100));
 $done = $current_time >= $current_need;
 
@@ -42,7 +42,7 @@ function get_cels($kelv)
 	return round($kelv - 273.15, 1);
 }
 
-$weather_data = json_decode(file_get_contents('http://api.openweathermap.org/data/2.5/weather?q=Yubileyny,ru&lang=ru'));
+$weather_data = json_decode(file_get_contents('http://api.openweathermap.org/data/2.5/weather?q='.get_config('city').'&lang=ru'));
 
 ?>
 <html>

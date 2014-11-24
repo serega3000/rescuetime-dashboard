@@ -1,6 +1,17 @@
 <?php
 
-date_default_timezone_set('Europe/Moscow'); 
+function get_config($key)
+{
+	static $config = null;
+	
+	if($config == null)
+	{
+		$config = include __DIR__."/config.php";
+	}
+	return $config[$key];
+}
+
+date_default_timezone_set(get_config('timezone')); 
 
 function rescuetime_query(array $params)
 {

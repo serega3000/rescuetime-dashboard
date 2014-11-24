@@ -11,6 +11,12 @@ if(! file_exists(__DIR__."/vendor/autoload.php"))
 	die();
 }
 
+if( ! file_exists(__DIR__."/config.php"))
+{
+	echo "please rename config.example.php to config.php and fill your configuration settings";
+	die();	
+}
+
 
 
 ?><html>
