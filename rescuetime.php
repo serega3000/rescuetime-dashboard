@@ -11,6 +11,17 @@ function get_config($key)
 	return $config[$key];
 }
 
+function get_text($alias)
+{
+	static $lang_data = null;
+	
+	if($lang_data == null)
+	{
+		$lang_data = include __DIR__."/lang.php";
+	}
+	return $lang_data[get_config('lang')][$alias];	
+}
+
 date_default_timezone_set(get_config('timezone')); 
 
 function rescuetime_query(array $params)

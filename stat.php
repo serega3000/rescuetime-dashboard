@@ -42,7 +42,7 @@ function get_cels($kelv)
 	return round($kelv - 273.15, 1);
 }
 
-$weather_data = json_decode(file_get_contents('http://api.openweathermap.org/data/2.5/weather?q='.get_config('city').'&lang=ru'));
+$weather_data = json_decode(file_get_contents('http://api.openweathermap.org/data/2.5/weather?q='.get_config('city').'&lang='.get_config('lang')));
 
 ?>
 <html>
@@ -210,7 +210,7 @@ $weather_data = json_decode(file_get_contents('http://api.openweathermap.org/dat
 						
 						?>
 					</td>
-					<td class="r"><div>За неделю<br/>работал:</div>
+					<td class="r"><div><?=get_text('work_per_week')?>:</div>
                         <?
                             echo format_time($current_time) . "&nbsp;";
                             if($done)
@@ -227,10 +227,10 @@ $weather_data = json_decode(file_get_contents('http://api.openweathermap.org/dat
 			</table>			
 		<table class="summary">
 			<tr>
-				<th>По часам</th>
-				<th>День</th>
-				<th>Неделя</th>
-				<th>Месяц</th>
+				<th><?=get_text('by_hours')?></th>
+				<th><?=get_text('day')?></th>
+				<th><?=get_text('week')?></th>
+				<th><?=get_text('month')?></th>
 			</tr>
 			<tr>
 				<td><img width="340" height="150" src="day.php?r=<?= microtime()?>"/></td>
