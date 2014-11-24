@@ -1,5 +1,4 @@
 <?php
-date_default_timezone_set('Europe/Moscow'); 
 require 'rescuetime.php';
 
 $last_monday = time();
