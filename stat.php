@@ -226,7 +226,6 @@ $weather_data = json_decode(file_get_contents('http://api.openweathermap.org/dat
 				<td><img width="150" height="150" src="summary.php?time=month&r=<?= microtime()?>"/><br/></td>								
 			</tr>
 		</table>
-        <div class="bar"><div style="width:<?=$current_percent?>%"></div></div>
 		<img width="800" height="150" src="month.php?r=<?= microtime()?>"/><br/>
 		
 		
