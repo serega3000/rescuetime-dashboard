@@ -29,6 +29,20 @@ $current_part_of_year = ($current_day_of_year + intval(date("G")) / 24 + intval(
 $current_need = $total_need * $current_part_of_year;
 $handicap = $current_time - $current_need;
 
+$handicap_class = "red";
+if($handicap > 0)
+{
+	if($handicap > 60 * 60 * 10)
+	{
+		$handicap_class = "green";
+	}
+	else 
+	{
+		$handicap_class = "yellow";
+	}
+}
+
+
 
 function get_cels($kelv)
 {
@@ -128,6 +142,22 @@ $weather_data = json_decode(file_get_contents('http://api.openweathermap.org/dat
             height: 20px;
             background: #009900;
         }
+		.handicap{
+			padding: 3px;
+			height: 1em!important;
+			line-height: 1em!important;
+			font-size: 0.7em!important;
+			font-weight:bold;
+		}
+		.handicap_yellow {
+			background: yellow;
+		}
+		.handicap_green {
+			background: #77ff77;
+		}
+		.handicap_red {
+			background: #ff7777;			
+		}
 		</style>		
 		<script>		
 
@@ -205,10 +235,9 @@ $weather_data = json_decode(file_get_contents('http://api.openweathermap.org/dat
 						?>
 					</td>
 					<td class="r"><div><?=get_text('handicap')?>:</div>
-                        <?
+                        <div class="handicap handicap_<?=$handicap_class?>"><?
                             echo format_time($handicap) . "&nbsp;";
-
-                        ?>
+							?></div>
                     </td>
 				</tr>
 			</table>			
