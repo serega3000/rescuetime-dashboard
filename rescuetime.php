@@ -1,5 +1,16 @@
 <?php
 
+function format_time($t) // t = seconds, f = separator 
+{
+	$sign = "";
+	if($t < 0)
+	{
+		$t = abs($t);
+		$sign = "-";
+	}
+	return $sign.sprintf("%02d:%02d", floor($t/3600), ($t/60)%60);
+}
+
 function get_config($key)
 {
 	static $config = null;

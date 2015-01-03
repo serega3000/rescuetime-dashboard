@@ -6,13 +6,15 @@ return array(
 		'by_hours' => "По часам",
 		'day' => 'День',
 		'week' => 'Неделя',
-		'month' => 'Месяц'				
+		'month' => 'Месяц',
+		'handicap' => 'Гандикап'
 	),
 	'en' => array(
 		'work_per_week' => 'Worked<br/>current week',
 		'by_hours' => "By hours",
 		'day' => 'Day',
 		'week' => 'Week',
-		'month' => 'Month'		
+		'month' => 'Month',
+		'handicap' => 'Handicap'
 	)
 );

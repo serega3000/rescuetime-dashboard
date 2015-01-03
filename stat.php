@@ -1,20 +1,14 @@
 <?php
 require 'rescuetime.php';
 
-$last_monday = time();
-if(date('w', $last_monday) != '1')
-{
-   
-    $last_monday = strtotime('last monday');
-}
+$first_day_of_year = strtotime("01.01.".date("Y"));
 
 $data = rescuetime_query(array(
 	'restrict_kind' => 'productivity',
 	'perspective' => 'rank',
 	'restrict_end' => date('Y-m-d'),
-	'restrict_begin' => date('Y-m-d', $last_monday),
+	'restrict_begin' => date('Y-m-d', $first_day_of_year),
 ));
-
 
 $current_time = 0;
 
@@ -26,14 +20,15 @@ foreach($data->rows as $item_data)
 	}
 }
 
-$current_need = 60 * 60 * get_config('week_target');
-$current_percent = min(100, floor($current_time / $current_need * 100));
-$done = $current_time >= $current_need;
 
-function format_time($t) // t = seconds, f = separator 
-{
-  return sprintf("%02d:%02d", floor($t/3600), ($t/60)%60);
-}
+$current_day_of_year = intval(date('z'));
+
+$total_need = get_config('year_target') * 60 * 60;
+
+$current_part_of_year = ($current_day_of_year + intval(date("G")) / 24 + intval(date('i')) / 60 / 24) / 365;
+$current_need = $total_need * $current_part_of_year;
+$handicap = $current_time - $current_need;
+
 
 function get_cels($kelv)
 {
@@ -209,17 +204,10 @@ $weather_data = json_decode(file_get_contents('http://api.openweathermap.org/dat
 						
 						?>
 					</td>
-					<td class="r"><div><?=get_text('work_per_week')?>:</div>
+					<td class="r"><div><?=get_text('handicap')?>:</div>
                         <?
-                            echo format_time($current_time) . "&nbsp;";
-                            if($done)
-                            {
-                                echo "OK!";
-                            }
-                            else
-                            {
-                                echo $current_percent . "%";
-                            }
+                            echo format_time($handicap) . "&nbsp;";
+
                         ?>
                     </td>
 				</tr>

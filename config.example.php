@@ -5,6 +5,6 @@ return array(
 	'lang' => 'ru',
 	'city' => "Moscow,ru",
 	'timezone' => "Europe/Moscow",
-	//how much hours you should be very productive per week
-	'week_target' => 25 
+	//how much hours you should be very productive per year
+	'year_target' => 1000
 );
